@@ -20,11 +20,11 @@ while stop == False :
     
             # Coefficiant
             print("Entrer un coef")
-            tmpc = input(">>>") 
+            tmpc = input(">>> ") 
             tmpn = float(tmpn)
             tmpc = float(tmpc)
             
-            # La ligne en dessosu sert a debugger
+            # La ligne en dessous sert a debugger
             tmp.append((tmpn, tmpc))
             print(tmp)
             try1 = True 
@@ -42,8 +42,30 @@ while stop == False :
 # Convertion et calcul
 
 # Calcul des notes x les coefs
-frno1 = [note * coef for note, coef in tmp]
 
-print(frno1)
+# Notes
+tmpfrno1 = [note * coef for note, coef in tmp] # Extraction des notes fois les coefs
+#print(tmpfrno1) # Debug
 
-# La ligne en dessosu sert a debugger
+for index, note in enumerate(tmpfrno1): # Combination des notes
+    if index == 0:
+        frno1 = tmpfrno1[0]
+    else:
+        frno1 += tmpfrno1[index]
+#print(frno1) # Debug
+
+# Coefficiants
+tmpfrco1 = [coef for note, coef in tmp] # Extraction des coefs
+#print(tmpfrco1) # Debug
+
+for index, note in enumerate(tmpfrco1): # Combination des coefs
+    if index == 0:
+        frco1 = tmpfrco1[0]
+    else:
+        frco1 += tmpfrco1[index]
+print(frco1) # Debug
+# Calcul
+
+fr1 = frno1 / frco1
+fr1 = round(fr1, 2)
+print("Vous avez {} de moyenne en Francais".format(fr1))
