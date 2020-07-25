@@ -64,7 +64,7 @@ for index, note in enumerate(tmpfrco1): # Combination des coefs
     else:
         frco1 += tmpfrco1[index]
 print(frco1) # Debug
-# Calcul
+# Affichage final
 
 fr1 = frno1 / frco1
 fr1 = round(fr1, 2)
