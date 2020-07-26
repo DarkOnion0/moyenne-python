@@ -2,7 +2,7 @@
 #! -*- coding:Utf-8 -*
 
 # Importation des modules
-from  moyennemod import *
+from  moyenne import *
 
 # Déclaration de variable
 stop = False
