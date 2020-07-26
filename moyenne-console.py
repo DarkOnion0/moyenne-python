@@ -29,7 +29,7 @@ def moyenne(tmp):
             frco1 = tmpfrco1[0]
         else:
             frco1 += tmpfrco1[index]
-    print(frco1) # Debug
+    #print(frco1) # Debug
     # Affichage final
 
     fr1 = frno1 / frco1
@@ -74,4 +74,4 @@ while stop == False :
         print('\n')
         try1 = False
 
-print(moyenne(tmp))
+moyenne(tmp)
