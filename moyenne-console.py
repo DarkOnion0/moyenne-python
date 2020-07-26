@@ -2,7 +2,39 @@
 #! -*- coding:Utf-8 -*
 
 # Importation des modules
-from  moyenne import *
+import os 
+# Definition du modules
+def moyenne(tmp):
+    """
+    Calcul de moyenne a partir d'une liste avec des tulpes avec en premiers: 
+    les notes puis les coefs ; 
+    Exemple : a = [(note, moyenne)]
+    """
+    tmpfrno1 = [note * coef for note, coef in tmp] # Extraction des notes fois les coefs
+    #print(tmpfrno1) # Debug
+
+    for index, note in enumerate(tmpfrno1): # Combination des notes
+        if index == 0:
+            frno1 = tmpfrno1[0]
+        else:
+            frno1 += tmpfrno1[index]
+    #print(frno1) # Debug
+
+    # Coefficiants
+    tmpfrco1 = [coef for note, coef in tmp] # Extraction des coefs
+    #print(tmpfrco1) # Debug
+
+    for index, note in enumerate(tmpfrco1): # Combination des coefs
+        if index == 0:
+            frco1 = tmpfrco1[0]
+        else:
+            frco1 += tmpfrco1[index]
+    print(frco1) # Debug
+    # Affichage final
+
+    fr1 = frno1 / frco1
+    fr1 = round(fr1, 2)
+    print("Vous avez {} de moyenne en Francais".format(fr1))
 
 # Déclaration de variable
 stop = False
@@ -42,3 +74,4 @@ while stop == False :
         print('\n')
         try1 = False
 
+print(moyenne(tmp))
