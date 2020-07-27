@@ -1,6 +1,5 @@
 #!/usr/bin/python3.8
 #! -*- coding:Utf-8 -*
-
 # Definition du modules
 def moyenne(tmp):
     """
