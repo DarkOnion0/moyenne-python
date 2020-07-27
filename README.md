@@ -1,5 +1,5 @@
 # Moyenne
-Cet un script qui calcul la moyenne de classe,
+Un script qui calcul la moyenne de classe,
 
 ## Utilisation :rocket:
-Télécharger le depot et executer le code nommée `moyenne-console.py`
+Télécharger le depot et executer `moyenne-console.py`
