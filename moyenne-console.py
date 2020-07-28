@@ -16,7 +16,7 @@ def moyenne(tmp):
         else:
             notes += tmpnotes[index]
     #print(frno1) # Debug
-
+    
     # Coefficiants
     tmpcoef = [tmpcoef for note, tmpcoef in tmp] # Extraction des coefs
     #print(tmpfrco1) # Debug
