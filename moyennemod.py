@@ -1,6 +1,9 @@
 #!/usr/bin/python3.8
 #! -*- coding:Utf-8 -*
+
+# moyenne
 def moyenne(tmp):
+
     """
     Calcul de moyenne a partir d'une liste avec des tulpes avec en premiers: 
     les notes puis les coefs ; 
@@ -31,3 +34,5 @@ def moyenne(tmp):
     matiere = notes / coefs
     matiere = round(matiere, 2)
     return matiere
+
+# 
