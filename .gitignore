@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 *.vim
-.vscode
+*.vscode
+test.py
