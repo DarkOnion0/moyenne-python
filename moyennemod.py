@@ -34,3 +34,21 @@ def moyenne(tmp):
     matiere = notes / coefs
     matiere = round(matiere, 2)
     return matiere
+
+# emoji
+def emoji(variable):
+    if variable <= 0:
+        like = "\U0001F92F"
+    
+    if variable > 0 and variable <= 10:
+        like = " \U0001F915"
+                
+    if variable > 10 and variable <= 15:
+        like =  "\U0001F914"
+        
+    if variable > 15 and variable < 18:
+        like = "\U0001F920" 
+                        
+    if variable >= 18:
+        like = "\U0001F973"
+    return like

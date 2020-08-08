@@ -85,28 +85,17 @@ while globalstop == False:
         file = open('data.txt', 'w')
 
         for matiere, note in total:
-            print("\nVous avez {} de moyennne en {}".format(note, matiere))
+            like = emoji(note)
+            print("\nVous avez {} de moyennne en {} {}".format(note, matiere, like))
             # Ecriture dans un fichier lisible de la session actuelle
-            file.write("\nVous avez {} de moyennne en {}\n".format(note, matiere))
+            file.write("\nVous avez {} de moyennne en {} {}\n".format(note, matiere, like))
         
         index = len(total)
         for flag, note in total:
             moygeneraltmp += note
         moygeneral = round(moygeneraltmp / index,  2)
-        # Secrets features
-        if moygeneral <= 0:
-            like = "\U0001F92F"
-        if moygeneral > 0 and moygeneral <= 10:
-            like = " \U0001F915"
-                
-        if moygeneral > 10 and moygeneral <= 15:
-            like =  "\U0001F914"
         
-        if moygeneral > 15 and moygeneral < 18:
-            like = "\U0001F920" 
-                        
-        if moygeneral >= 18:
-            like = "\U0001F973"
-        
+        like = emoji(moygeneral)
+
         print("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
         file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
