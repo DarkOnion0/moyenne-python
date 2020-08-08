@@ -38,7 +38,7 @@ def moyenne(tmp):
 # emoji
 def emoji(variable):
     if variable <= 0:
-        like = "\U0001F92F"
+        like = "\U0001F480"
     
     if variable > 0 and variable <= 10:
         like = " \U0001F915"
@@ -51,4 +51,7 @@ def emoji(variable):
                         
     if variable >= 18:
         like = "\U0001F973"
+    
+    if variable == 20:
+        like = "\U0001F389 \U0001F48E"
     return like

@@ -1,7 +1,7 @@
 #!/usr/bin/python3.8
 #! -*- coding:Utf-8 -*
 # Definition du modules
-from moyennemod import *
+from moyennemod import * 
 import pickle
 
 total = list()
@@ -28,7 +28,7 @@ while globalstop == False:
             print("Quelle matière voulez vous créer ?")
             matmp = input(">>> ")
             print("Etes vous sur de créer une matière du nom de : {}".format(matmp))    
-            mastopask = input("(O/n) \n>>> ")
+            mastopask = input("(o/n) \n>>> ")
             print(mastopask)  
             assert mastopask != "O" or "o" or "N" or "n"
         except AssertionError   :
@@ -72,7 +72,7 @@ while globalstop == False:
 
     print(total)
     try:
-        globalstopask = input("Voulez vous recommencer (O/n) \n>>> ")
+        globalstopask = input("Voulez vous recrez une matière (o/n) \n>>> ")
         assert globalstopask == "O" or "o" or "N" "n"
     except ValueError:
         print("Veuillez répondre avec (o) ou (n) ;")
@@ -83,12 +83,14 @@ while globalstop == False:
     if globalstopask == "N" or globalstopask == "n": # Arret du programme
         globalstop = True
         file = open('data.txt', 'w')
-
+        file.write("Moyenne des matières")
+        file.write("\n+----------")
+        file.write('\n')
         for matiere, note in total:
             like = emoji(note)
             print("\nVous avez {} de moyennne en {} {}".format(note, matiere, like))
             # Ecriture dans un fichier lisible de la session actuelle
-            file.write("\nVous avez {} de moyennne en {} {}\n".format(note, matiere, like))
+            file.write("\nVous avez {} de moyennne en {} {}".format(note, matiere, like))
         
         index = len(total)
         for flag, note in total:
@@ -97,5 +99,11 @@ while globalstop == False:
         
         like = emoji(moygeneral)
 
-        print("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
+        print('\n')
+        print("Vous avez {} de moyenne générale {}".format(moygeneral, like))
+        print("\n\U0001F4A1 Vos notes sont stocké dans un fichier data.txt dans le dossier actuelle")
+        file.write("\n\nMoyenne Générale")
+        file.write("\n+----------")
+        file.write('\n')
         file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
+        file.close()
