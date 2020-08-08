@@ -51,4 +51,7 @@ def emoji(variable):
                         
     if variable >= 18:
         like = "\U0001F973"
+    
+    if variable == 20:
+        like = "\U0001F389 \U0001F48E"
     return like
