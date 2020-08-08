@@ -10,7 +10,7 @@ def moyenne(tmp):
     Exemple : a = [(note, moyenne)]
     """
     tmpnotes = [tmpnote * tmpcoef for tmpnote, tmpcoef in tmp] # Extraction des notes fois les coefs
-    print(tmpnotes) # Debug
+    #print(tmpnotes) # Debug
 
     for index, note in enumerate(tmpnotes): # Combination des notes
         if index == 0:

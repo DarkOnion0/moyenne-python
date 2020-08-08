@@ -55,16 +55,15 @@ while globalstop == False:
             
             tmp.append((tmpn, tmpc))
             print(tmp)
+            print("Voulez vous continuer (o/n) ?")
+            stoptmp = input(">>> ")
+            if stoptmp == "n" :
+                nostop = True
+            else:
+                print('\n')
+                nostop = False
         except ValueError :
             print("Veuillez inserer un nombre")
-    
-        print("Voulez vous continuer (o/n) ?")
-        stoptmp = input(">>> ")
-        if stoptmp == "n" :
-            nostop = True
-        else:
-            print('\n')
-            nostop = False
     
     notetmp = moyenne(tmp)
     total.append((matmp, notetmp))
