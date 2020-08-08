@@ -2,6 +2,7 @@
 #! -*- coding:Utf-8 -*
 # Definition du modules
 from moyennemod import *
+import pickle
 
 total = list()
 globalstop = False # Boucle générale
@@ -14,7 +15,6 @@ while globalstop == False:
 
     mastopask = "o"
     stoptmp = "o"
-    globalstopask = "o"
     tmp = []
     tmpn = ""
     tmpc = ""
@@ -65,19 +65,22 @@ while globalstop == False:
         except ValueError :
             print("Veuillez inserer un nombre")
     
+    # Calcul et fin du programme
     notetmp = moyenne(tmp)
     total.append((matmp, notetmp))
     print(total)
     try:
-        globalstopask = input("Voulez vous continuer (O/n) \n>>> ")
+        globalstopask = input("Voulez vous recommencer (O/n) \n>>> ")
         assert globalstopask == "O" or "o" or "N" "n"
     except ValueError:
         print("Veuillez répondre avec (o) ou (n) ;")
 
-    if globalstopask == "O" or "o":
+    if globalstopask == "O" or globalstopask == "o": # Continuation du programme
         print('\n')
         globalstop = False
-    if globalstopask == "N" or "n":
+    if globalstopask == "N" or globalstopask == "n": # Arret du programme
         globalstop = True
+        file = open('data.txt', 'w')
         for matiere, note in total:
             print("\nVous avez {} de moyennne en {}".format(note, matiere))
+            file.write("\n{}-----> {}".format(matiere, note))
