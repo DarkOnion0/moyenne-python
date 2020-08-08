@@ -1,52 +1,49 @@
 #!/usr/bin/python3.8
 #! -*- coding:Utf-8 -*
 # Definition du modules
-def moyenne(tmp):
-    """
-    Calcul de moyenne a partir d'une liste avec des tulpes avec en premiers: 
-    les notes puis les coefs ; 
-    Exemple : a = [(note, moyenne)]
-    """
-    tmpnotes = [tmpnote * tmpcoef for tmpnote, tmpcoef in tmp] # Extraction des notes fois les coefs
-    #print(tmpfrno1) # Debug
+from moyennemod import *
 
-    for index, note in enumerate(tmpnotes): # Combination des notes
-        if index == 0:
-            notes = tmpnotes[0]
-        else:
-            notes += tmpnotes[index]
-    #print(frno1) # Debug
-    
-    # Coefficiants
-    tmpcoef = [tmpcoef for note, tmpcoef in tmp] # Extraction des coefs
-    #print(tmpfrco1) # Debug
+total = list()
+globalstop = False # Boucle générale
 
-    for index, note in enumerate(tmpcoef): # Combination des coefs
-        if index == 0:
-            coefs = tmpcoef[0]
-        else:
-            coefs += tmpcoef[index]
-    #print(frco1) # Debug
-    # Affichage final
+while globalstop == False:
+   
+   # Déclaration de variable
+    mastop = False # Boucle de la créaton de la matière
+    nostop = False # Boucle de la création des notes
 
-    matiere = notes / coefs
-    matiere = round(matiere, 2)
-    return matiere
+    mastopask = "o"
+    stoptmp = "o"
+    globalstopask = "o"
+    tmp = []
+    tmpn = ""
+    tmpc = ""
+    nostop = False
+    notetmp = 0.0
 
-# Déclaration de variable
-stop = False
-tmp = []
-tmpn = ""
-tmpc = ""
-try1 = False
-frno1 = 0.0
-
-#Francais note / coef définitions
-while stop == False :
-    
-    while try1 == False :
+    while mastop == False: # Demande de la matière
+        
         try:
-           # Note
+            print("Quelle matière voulez vous créer ?")
+            matmp = input(">>> ")
+            print("Etes vous sur de créer une matière du nom de : {}".format(matmp))    
+            mastopask = input("(O/n) \n>>> ")
+            print(mastopask)  
+            assert mastopask != "O" or "o" or "N" or "n"
+        except AssertionError   :
+            print("Veuillez ecrire la réponse en minuscule")
+        
+        if  mastopask == "o" or mastopask ==  "O" :
+            print("\n")
+            mastop = True
+        
+        else:
+            mastop = False
+    
+    while nostop == False : # Demande de la note
+        
+        try:
+            #Note
             print("Entrer une note")
             tmpn = input(">>> ")
     
@@ -56,20 +53,31 @@ while stop == False :
             tmpn = float(tmpn)
             tmpc = float(tmpc)
             
-            # La ligne en dessous sert a debugger
             tmp.append((tmpn, tmpc))
             print(tmp)
-            try1 = True 
+            print("Voulez vous continuer (o/n) ?")
+            stoptmp = input(">>> ")
+            if stoptmp == "n" :
+                nostop = True
+            else:
+                print('\n')
+                nostop = False
         except ValueError :
             print("Veuillez inserer un nombre")
     
-    print("Voulez vous continuer (o/n) ?")
-    stoptmp = input(">>> ")
-    if stoptmp == "n" :
-        stop = True
-    else:
-        print('\n')
-        try1 = False
+    notetmp = moyenne(tmp)
+    total.append((matmp, notetmp))
+    print(total)
+    try:
+        globalstopask = input("Voulez vous continuer (O/n) \n>>> ")
+        assert globalstopask == "O" or "o" or "N" "n"
+    except ValueError:
+        print("Veuillez répondre avec (o) ou (n) ;")
 
-fr1 = moyenne(tmp)
-print("Vous avez {} de moyenne en Francais".format(fr1))
+    if globalstopask == "O" or "o":
+        print('\n')
+        globalstop = False
+    if globalstopask == "N" or "n":
+        globalstop = True
+        for matiere, note in total:
+            print("\nVous avez {} de moyennne en {}".format(note, matiere))
