@@ -130,4 +130,3 @@ dmypy.json
 
 *.vim
 *.vscode
-test.py
