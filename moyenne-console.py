@@ -5,10 +5,39 @@ from moyennemod import *
 import pickle
 
 total = list()
-globalstop = False # Boucle générale
+nobackupstop = False # Boucle générale
 moygeneraltmp = float()
+backupstop = False
+yesbackupstop = True
+backup = dict()
 
-while globalstop == False:
+while backupstop == False:
+    
+    try:
+        ask1 = input("Voulez vous réstaurez un fichier (o/n)\n>>> ")
+        assert ask1 != "O" or "o" or "N" or "n"
+    except AssertionError   :
+        print("Veuillez ecrire O ou N")
+    
+    if  ask1 == "o" or ask1 ==  "O" :
+        print("\n")
+        
+        backupfile = open('data.bin', 'rb')
+        backup = pickle.load(backupfile)
+        backupfile.close()
+        
+        backupstop = True
+        yesbackupstop = False
+        
+        print('\n')
+    else:
+        backupstop = True
+        print('\n')
+
+#while yesbackupstop == False:
+    
+
+while nobackupstop == False:
    
    # Déclaration de variable
     mastop = False # Boucle de la créaton de la matière
@@ -32,7 +61,7 @@ while globalstop == False:
             print(mastopask)  
             assert mastopask != "O" or "o" or "N" or "n"
         except AssertionError   :
-            print("Veuillez ecrire la réponse en minuscule")
+            print("Veuillez ecrire la réponse avec O ou N")
         
         if  mastopask == "o" or mastopask ==  "O" :
             print("\n")
@@ -67,25 +96,31 @@ while globalstop == False:
             print("Veuillez inserer un nombre")
     
     # Calcul et fin du programme
+
     notetmp = moyenne(tmp)
     total.append((matmp, notetmp))
+    backup[matmp] = moyenne(tmp, mid=True)
 
     print(total)
     try:
-        globalstopask = input("Voulez vous recrez une matière (o/n) \n>>> ")
-        assert globalstopask == "O" or "o" or "N" "n"
+        nobackupstopask = input("Voulez vous recrez une matière (o/n) \n>>> ")
+        assert nobackupstopask == "O" or "o" or "N" "n"
     except ValueError:
         print("Veuillez répondre avec (o) ou (n) ;")
 
-    if globalstopask == "O" or globalstopask == "o": # Continuation du programme
+    if nobackupstopask == "O" or nobackupstopask == "o": # Continuation du programme
         print('\n')
-        globalstop = False
-    if globalstopask == "N" or globalstopask == "n": # Arret du programme
-        globalstop = True
+        nobackupstop = False
+    
+    # Ecriture
+
+    if nobackupstopask == "N" or nobackupstopask == "n": # Arret du programme
+        nobackupstop = True
         file = open('data.txt', 'w')
         file.write("Moyenne des matières")
         file.write("\n+----------")
         file.write('\n')
+        
         for matiere, note in total:
             like = emoji(note)
             print("\nVous avez {} de moyennne en {} {}".format(note, matiere, like))
@@ -107,3 +142,7 @@ while globalstop == False:
         file.write('\n')
         file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
         file.close()
+
+        backupfile = open('data.bin', 'wb')
+        pickle.dump(backup, backupfile)
+        backupfile.close

@@ -2,7 +2,7 @@
 #! -*- coding:Utf-8 -*
 
 # moyenne
-def moyenne(tmp):
+def moyenne(tmp, mid = False):
 
     """
     Calcul de moyenne a partir d'une liste avec des tulpes avec en premiers: 
@@ -29,11 +29,18 @@ def moyenne(tmp):
         else:
             coefs += tmpcoef[index]
     #print(coefs) # Debug
+    
     # Affichage final
+    # notes et coefs dans un tulpe
+    if mid == True:
+        matiere = (notes, coefs)
+        return matiere
 
-    matiere = notes / coefs
-    matiere = round(matiere, 2)
-    return matiere
+    # moyenne deja calculée
+    else:
+        matiere = notes / coefs
+        matiere = round(matiere, 2)
+        return matiere
 
 # emoji
 def emoji(variable):
