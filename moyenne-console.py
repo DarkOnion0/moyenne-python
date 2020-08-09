@@ -14,7 +14,7 @@ backup = dict()
 while backupstop == False:
     
     try:
-        ask1 = input("Voulez vous réstaurez un fichier (o/n)\n>>> ")
+        ask1 = input("Voulez vous restaurer un fichier (o/n)\n>>> ")
         assert ask1 != "O" or "o" or "N" or "n"
     except AssertionError   :
         print("Veuillez ecrire O ou N")
@@ -54,7 +54,7 @@ while yesbackupstop == False:
     if ask2 == "1":
         while ask2stop == False:
             try:
-                print("Quelle matière shouaitez vous modifier")
+                print("Quelle matière souhaitez vous modifier")
                 for ma in backup.keys(): 
                     print("- ", ma)
                 ask2_1 = input(">>> ")
@@ -86,7 +86,7 @@ while yesbackupstop == False:
                     print('\n')
                     nostop = False
             except ValueError :
-                print("Veuillez inserer un nombre")
+                print("Veuillez insérer un nombre")
             
             notetmp = moyenne(tmp)
             total.append((ask2_1, notetmp))
@@ -156,7 +156,7 @@ while nobackupstop == False:
                 print('\n')
                 nostop = False
         except ValueError :
-            print("Veuillez inserer un nombre")
+            print("Veuillez insérer un nombre")
     
     # Calcul et fin du programme
 
@@ -166,7 +166,7 @@ while nobackupstop == False:
 
     print(total)
     try:
-        nobackupstopask = input("Voulez vous recrez une matière (o/n) \n>>> ")
+        nobackupstopask = input("Voulez vous re créer une matière (o/n) \n>>> ")
         assert nobackupstopask == "O" or "o" or "N" "n"
     except ValueError:
         print("Veuillez répondre avec (o) ou (n) ;")
@@ -199,7 +199,7 @@ while nobackupstop == False:
 
         print('\n')
         print("Vous avez {} de moyenne générale {}".format(moygeneral, like))
-        print("\n\U0001F4A1 Vos notes sont stocké dans un fichier data.txt dans le dossier actuelle")
+        print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
         file.write("\n\nMoyenne Générale")
         file.write("\n+----------")
         file.write('\n')

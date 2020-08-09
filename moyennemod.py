@@ -5,7 +5,7 @@
 def moyenne(tmp, mid = False):
 
     """
-    Calcul de moyenne a partir d'une liste avec des tulpes avec en premiers: 
+    Calcul de moyenne a partir d'une liste avec des tulpes avec en premier: 
     les notes puis les coefs ; 
     Exemple : a = [(note, moyenne)]
     """
