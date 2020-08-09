@@ -34,8 +34,71 @@ while backupstop == False:
         backupstop = True
         print('\n')
 
-#while yesbackupstop == False:
+while yesbackupstop == False:
     
+    # Déclaration de varibles
+    stoptmp = "o"
+    tmp = []
+    tmpn = ""
+    tmpc = ""
+    nostop = False
+    notetmp = 0.0
+    ask2stop = False
+
+    try:
+        ask2 = input("Voulez vous \n1- Completer une matière \n2- Créer une nouvelle matière\n>>> ")
+        assert ask2 == "1" or "2"
+    except AssertionError:
+        print("Veuillez répondre avec 1 ou 2")
+    
+    if ask2 == "1":
+        while ask2stop == False:
+            try:
+                print("Quelle matière shouaitez vous modifier")
+                for ma in backup.keys(): 
+                    print("- ", ma)
+                ask2_1 = input(">>> ")
+                assert backup.get(ask2_1)
+                ask2stop = True
+            except AssertionError:
+                print("Veuillez répondre avec le nom d'une des variables affichées")
+
+        while nostop == False : # Demande de la note
+        
+            try:
+                #Note
+                print("Entrer une note")
+                tmpn = input(">>> ")
+        
+                # Coefficiant
+                print("Entrer un coef")
+                tmpc = input(">>> ") 
+                tmpn = float(tmpn)
+                tmpc = float(tmpc)
+                
+                tmp.append((tmpn, tmpc))
+                print(tmp)
+                print("Voulez vous continuer (o/n) ?")
+                stoptmp = input(">>> ")
+                if stoptmp == "n" :
+                    nostop = True
+                else:
+                    print('\n')
+                    nostop = False
+            except ValueError :
+                print("Veuillez inserer un nombre")
+            
+            notetmp = moyenne(tmp)
+            total.append((ask2_1, notetmp))
+
+            backuptmp = backup.get(ask2_1)
+            backup[ask2_1] = backupobj(moyenne(tmp, mid=True), backuptmp)
+            
+            # Debug
+            print(backuptmp)
+            print(tmp)
+            print(total)
+            print(backup)
 
 while nobackupstop == False:
    

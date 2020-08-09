@@ -62,3 +62,11 @@ def emoji(variable):
     if variable == 20:
         like = "\U0001F389 \U0001F48E"
     return like
+
+def backupobj(backup, backuptmp):
+    backup = list(backup)
+    backuptmp = list(backuptmp)
+
+    backuptot = (backup[0] + backuptmp[0], backup[1] + backuptmp[1])
+    
+    return backuptot
