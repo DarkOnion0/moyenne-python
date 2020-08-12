@@ -32,7 +32,7 @@ Un script qui calcule la moyenne de classe,
 ## Contributions
 * We need your help 😀
 
-## To-Do :to
+## To-Do
 - [x] Sauvegarde de la moyenne 
   - [x] Sauvegarde de la moyenne
   - [x] Réutilisation de la moyenne sauvegardée
