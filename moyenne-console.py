@@ -100,25 +100,25 @@ while yesbackup == False:
             note = backup[ma].get('note')
             coef = backup[ma].get('coef')
 
-            print(type(note), note)
-            print(type(coef), coef)
+            #print(type(note), note)
+            #print(type(coef), coef)
 
             index = len(note)
             flag = 0
             tot = list()
             tmp_tmp = list()
 
-            print(index)
+            #print(index)
 
             while flag != index:
                 tottmp = (note[flag], coef[flag])
                 tmp.append(tottmp)
                 flag += 1
-                print(tottmp)
+                #print(tottmp)
 
             notetmp = moyenne(tmp)
             total.append((ask2_1, notetmp))
-            indextmp = len(tmp) - 1
+            indextmp = 0
 
             backup[ask2_1] = {'note': separate(tmp), 'coef': separate(tmp, noteask=False), 'last': tmp[indextmp],'moyenne': notetmp}
             
@@ -219,13 +219,13 @@ while yesbackup == False:
 
         like = emoji(moygeneral)
 
-        print('\n')
-        print("Vous avez {} de moyenne générale {}".format(moygeneral, like))
+        #print('\n')
+        #print("Vous avez {} de moyenne générale {}".format(moygeneral, like))
         print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
-        file.write("\n\nMoyenne Générale")
-        file.write("\n+----------")
-        file.write('\n')
-        file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
+        #file.write("\n\nMoyenne Générale")
+        #file.write("\n+----------")
+        #file.write('\n')
+        #file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
         file.close()
 
 while nobackup == False:
