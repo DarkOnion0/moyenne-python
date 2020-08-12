@@ -16,7 +16,7 @@ home = False
 while home  == False:
     
     try:
-        ask1 = input("Voulez vous\n1- Créer un nouveaux fichier\n2- Restaurer un fichier\n3- Calculer a partir d'un fichier data.json\n>>> ")
+        ask1 = input("Voulez vous :\n1- Créer un nouveaux fichier\n2- Réstaurer un fichier\n3- Lire un fichier data.json\n>>> ")
         assert ask1 != "1" or "2" or "3"
     except AssertionError   :
         print("Veuillez choisire soit : 1, 2 ou 3")
@@ -55,7 +55,7 @@ while yesbackup == False:
     ask2stop = False
 
     try:
-        ask2 = input("Voulez vous \n1- Completer une matière \n2- Créer une nouvelle matière \n3- Arréter le programme\n>>> ")
+        ask2 = input("Voulez vous :\n1- Compléter une matière \n2- Créer une nouvelle matière \n3- Arréter le programme\n>>> ")
         assert ask2 == "1" or "2" or "3"
     except AssertionError:
         print("Veuillez répondre avec 1, 2 ou 3")
@@ -63,7 +63,7 @@ while yesbackup == False:
     if ask2 == "1":
         while ask2stop == False:
             try:
-                print("Quelle matière souhaitez vous modifier")
+                print("Quelle matière souhaitez vous modifier :")
                 for ma in backup.keys(): 
                     print("- ", ma)
                 ask2_1 = input(">>> ")
