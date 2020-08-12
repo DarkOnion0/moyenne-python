@@ -339,7 +339,7 @@ while nobackup == False:
         json.dump(backup, backupfile, ensure_ascii=False, indent = 4)
         backupfile.close()
 
-        print(backup)
+        #print(backup)
 
 while justcount == False:
     #print("\U0001F44D")
