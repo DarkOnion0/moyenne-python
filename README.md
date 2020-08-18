@@ -2,7 +2,7 @@
 Un script qui calcule la moyenne de classe,
 
 ## Utilisation :rocket:
-* Télécharger la dernière version stable et executer `python moyenne-console.py` 
+* Télécharger la dernière version stable et executer `python moyenne-console.py`
 * Commencer par créer un nouveaux fichier en choisissant le choix 1 lors du démarage et laissez vous guider  
 * Vous pouvez modifier votre moyenne a partir du fichier data.json ou en créer un avec la syntax suivante
   ```json
