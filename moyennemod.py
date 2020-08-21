@@ -5,8 +5,8 @@
 def moyenne(tmp, mid = False):
 
     """
-    Calcul de moyenne a partir d'une liste avec des tulpes avec en premier: 
-    les notes puis les coefs ; 
+    Calcul de moyenne a partir d'une liste avec des tulpes avec en premier:\n 
+    les notes puis les coefs ;\n 
     Exemple : a = [(note, moyenne)]
     """
     tmpnotes = [tmpnote * tmpcoef for tmpnote, tmpcoef in tmp] # Extraction des notes fois les coefs
@@ -44,6 +44,7 @@ def moyenne(tmp, mid = False):
 
 # emoji
 def emoji(variable):
+    '''Retourne des emojis pour un spectre de notes'''
     if variable <= 0:
         like = "\U0001F480"
     
@@ -64,7 +65,10 @@ def emoji(variable):
     return like
 
 # Separe des tulpes en 2 listes
-def separate(var, noteask=True):
+def separate(var, noteask = True):
+    '''Separe 2 tulpes en 2 listes :\n
+    les notes : noteask = True
+    les coefs : noteask = False'''
     data = list()
 
     for note, coef in var: # Retourne 2 chaines de cararctères pour un un tulpe 
