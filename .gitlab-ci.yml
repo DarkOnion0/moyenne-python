@@ -19,22 +19,16 @@ cache:
 
 before_script:
   - python -V  # Print out python version for debugging
-  - pip install virtualenv
+  - python -m pip install --upgrade pip
+  - pip install virtualenv flake8 pytest
   - virtualenv venv
   - source venv/bin/activate
 
-test:
+Linting:
   script:
-    - python moyenne-console.py moyenne-console.py test
-    - pip install tox flake8  # you can also use tox
-    - tox -e py36,flake8
+    - flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+    - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-run:
-  script:
-    - python moyenne-console.py moyenne-console.py bdist_wheel
-    # an alternative approach is to install and run:
-    - pip install dist/*
-    # run the command here
-  artifacts:
-    paths:
-      - dist/*.whl
+Testing:
+    script:
+        - python
