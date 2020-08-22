@@ -1,6 +1,7 @@
 # Moyenne
-Un script qui calcule la moyenne de classe,
+![moyenne satus](https://gitlab.com/DarkOnion0/moyenne-python/badges/master/pipeline.svg)
 
+Un script qui calcule la moyenne de classe,
 ## Utilisation :rocket:
 * Télécharger la dernière version stable et executer `python moyenne-console.py`
 * Commencer par créer un nouveaux fichier en choisissant le choix 1 lors du démarage et laissez vous guider  
