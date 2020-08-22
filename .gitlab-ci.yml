@@ -1,0 +1,5 @@
+image: "python:latest"
+
+Python_Test:
+    script:
+        - python 
