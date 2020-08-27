@@ -204,7 +204,7 @@ while yesbackup == False:
         json.dump(backup, backupfile, ensure_ascii=False, indent = 4)
         backupfile.close()
         
-    if ask2 == "3":
+    if ask2 == "3": # Fin
         
         # Recupération des vielles moyennes
         for matiere_backup in list(backup):
@@ -224,19 +224,20 @@ while yesbackup == False:
             file.write("\nVous avez {} de moyennne en {} {}".format(note, matiere, like))
 
         index = len(total)
+        
         for flag, note in total:
             moygeneraltmp += note
             moygeneral = round(moygeneraltmp / index,  2)
 
         like = emoji(moygeneral)
 
-        #print('\n')
-        #print("Vous avez {} de moyenne générale {}".format(moygeneral, like))
+        print('\n')
+        print("Vous avez {} de moyenne générale {}".format(moygeneral, like))
         print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
-        #file.write("\n\nMoyenne Générale")
-        #file.write("\n+----------")
-        #file.write('\n')
-        #file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
+        file.write("\n\nMoyenne Générale")
+        file.write("\n+----------")
+        file.write('\n')
+        file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
         file.close()
 
 while nobackup == False:
