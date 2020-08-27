@@ -60,7 +60,7 @@ while yesbackup == False:
     except AssertionError:
         print("Veuillez répondre avec 1, 2 ou 3")
     
-    if ask2 == "1":
+    if ask2 == "1": # Completer une matière
         while ask2stop == False:
             try:
                 print("Quelle matière souhaitez vous modifier :")
@@ -117,7 +117,7 @@ while yesbackup == False:
                 #print(tottmp)
 
             notetmp = moyenne(tmp)
-            total.append((ask2_1, notetmp))
+            #total.append((ask2_1, notetmp))
             indextmp = 0
 
             backup[ask2_1] = {'note': separate(tmp), 'coef': separate(tmp, noteask=False), 'last': tmp[indextmp],'moyenne': notetmp}
@@ -131,7 +131,7 @@ while yesbackup == False:
             #print(tmp)
             #print(total)
             #print(backup)
-    if ask2 == "2":
+    if ask2 == "2": # Créer une nouvelle matière
         
         # Déclaration de variable
         mastop = False # Boucle de la créaton de la matière
@@ -191,15 +191,26 @@ while yesbackup == False:
 
         # Calcul et fin du programme
 
-        notetmp = moyenne(tmp)
-        total.append((matmp, notetmp))
-        indextmp = len(tmp) - 1
-        backup[matmp] = {'note': separate(tmp), 'coef': separate(tmp, noteask=False), 'last': tmp[indextmp],'moyenne': notetmp}
+        notetmp = moyenne(tmp) # moyenne
+        #total.append((matmp, notetmp)) # liste finale
+        
+        indextmp = len(tmp) - 1 # Index de la dernière note
+        backup[matmp] = {'note': separate(tmp), 'coef': separate(tmp, noteask=False), 'last': tmp[indextmp],'moyenne': notetmp} # Mise a jour de la variable du fichier JSON
+        
         #print(backup)
+        
+        # Ecriture du fichier JSON
         backupfile = open('data.json', 'w')
         json.dump(backup, backupfile, ensure_ascii=False, indent = 4)
         backupfile.close()
+        
     if ask2 == "3":
+        
+        # Recupération des vielles moyennes
+        for matiere_backup in list(backup):
+            note_backup = backup[matiere_backup].get('moyenne')
+            total.append((matiere_backup, note_backup))
+        
         yesbackup = True
         file = open('data.txt', 'w')
         file.write("Moyenne des matières")
