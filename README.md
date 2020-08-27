@@ -1,5 +1,5 @@
 # Moyenne
-![moyenne satus](https://gitlab.com/DarkOnion0/moyenne-python/badges/master/pipeline.svg)
+[![moyenne satus](https://gitlab.com/DarkOnion0/moyenne-python/badges/master/pipeline.svg "Gitlab pipeline")[https://gitlab.com/DarkOnion0/moyenne-python/-/pipelines]
 
 Un script qui calcule la moyenne de classe,
 ## Utilisation :rocket:
