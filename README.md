@@ -37,5 +37,5 @@ Un script qui calcule la moyenne de classe,
 - [x] Sauvegarde de la moyenne 
   - [x] Sauvegarde de la moyenne
   - [x] Réutilisation de la moyenne sauvegardée
-- [ ] Utilisation du donnée data.txt a toute les étapes
+- [x] Utilisation du donnée data.txt a toute les étapes
 - [ ] GUI
