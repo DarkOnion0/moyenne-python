@@ -2,6 +2,8 @@
 #! -*- coding:Utf-8 -*
 # Definition du modules
 from moyennemod import *
+from rich.console import Console
+from rich.table import Table
 import json
 
 total = list()
@@ -12,6 +14,7 @@ yesbackup = True
 backup = dict()
 justcount = True
 home = False
+console = Console()
 
 while home  == False:
     
@@ -397,6 +400,16 @@ while justcount == False:
         #flag1 += 1
         flag2 += 1
 
+    # Tableau
+    
+    moyenne_table = Table(title="\U0001F3EB Moyenne des Matières \U0001F3EB")
+
+    moyenne_table.add_column("Matières", justify="center", style="red")
+    moyenne_table.add_column("note", justify="center", style="blue")
+    moyenne_table.add_column("Moyennes", justify="right", style="cyan")
+    moyenne_table.add_column("Like", justify="center", style="green")
+    # Ecriture / Affichage
+
     file = open('data.txt', 'w')
     file.write("Moyenne des matières")
     file.write("\n+----------")
@@ -404,20 +417,23 @@ while justcount == False:
     
     for matiere, note in total:
         like = emoji(note)
-        print("\nVous avez {} de moyennne en {} {}".format(note, matiere, like))
+        note = str(note)
+        #console.print("\nVous avez [green]{}[/] de moyennne en [bold cyan]{}[/] {}".format(note, matiere, like); style="")
+        moyenne_table.add_row(matiere, " ", note, like)
         # Ecriture dans un fichier lisible de la session actuelle
         file.write("\nVous avez {} de moyennne en {} {}".format(note, matiere, like))
-    
+    console.print(moyenne_table)
+
     index = len(total)
     for flag, note in total:
         moygeneraltmp += note
     moygeneral = round(moygeneraltmp / index,  2)
     
     like = emoji(moygeneral)
-
-    print('\n')
-    print("Vous avez {} de moyenne générale {}".format(moygeneral, like))
-    print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
+    
+    console.print('\n')
+    console.print("Vous avez [purple]{}[/] de moyenne générale {}".format(moygeneral, like), style="bold")
+    console.print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
     file.write("\n\nMoyenne Générale")
     file.write("\n+----------")
     file.write('\n')
