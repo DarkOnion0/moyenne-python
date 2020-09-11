@@ -132,4 +132,5 @@ dmypy.json
 *.vscode
 *.txt
 *.json
+*.html
 test.py
