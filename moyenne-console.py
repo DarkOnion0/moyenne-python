@@ -2,10 +2,15 @@
 #! -*- coding:Utf-8 -*
 # Definition du modules
 from moyennemod import *
+
 from rich.console import Console
 from rich.table import Table
-import json
 
+from os import path as os_path
+
+import json, os, glob
+
+# Var
 total = list()
 nobackup = True
 moygeneraltmp = float()
@@ -14,7 +19,36 @@ yesbackup = True
 backup = dict()
 justcount = True
 home = False
-console = Console()
+console = Console(record="True")
+no_dir = False
+
+# Data
+PATH = os_path.abspath(os_path.split(__file__)[0])
+data_dir = os.path.join(PATH, "data")
+
+data_json = os.path.join(data_dir, "data.json")
+data_txt = os.path.join(data_dir, "data.txt")
+data_html = os.path.join(data_dir, "data.html")
+data_html = os.path.join(data_dir, "data.html")
+
+print(data_html, data_json, data_txt)
+
+listdir = os.listdir(PATH)
+index_dir = len(listdir)
+#print(type(listdir), listdir, index_dir)
+
+try:
+    assert glob.glob(os.path.join(PATH, "data"))
+except AssertionError:
+    os.mkdir(os.path.join(PATH, "data"))
+    console.print("Data Folder create \U0001F642 \n")
+
+# Table
+moyenne_table = Table(title="\U0001F3EB Moyenne des Matières \U0001F3EB", )
+moyenne_table.add_column("Matières", justify="center", style="red")
+moyenne_table.add_column("note", justify="center", style="blue")
+moyenne_table.add_column("Moyennes", justify="right", style="cyan")
+moyenne_table.add_column("Like", justify="center", style="green")
 
 while home  == False:
     
@@ -27,7 +61,7 @@ while home  == False:
     if  ask1 == "2":
         print("\n")
         
-        backupfile = open('data.json', 'r')
+        backupfile = open(data_json, 'r')
         backup = json.load(backupfile)
         backupfile.close()
         
@@ -125,7 +159,7 @@ while yesbackup == False:
 
             backup[ask2_1] = {'note': separate(tmp), 'coef': separate(tmp, noteask=False), 'last': tmp[indextmp],'moyenne': notetmp}
             
-            backupfile = open('data.json', 'w')
+            backupfile = open(data_json, 'w')
             json.dump(backup, backupfile, ensure_ascii=False, indent = 4)
             backupfile.close()
 
@@ -203,7 +237,7 @@ while yesbackup == False:
         #print(backup)
         
         # Ecriture du fichier JSON
-        backupfile = open('data.json', 'w')
+        backupfile = open(data_json, 'w')
         json.dump(backup, backupfile, ensure_ascii=False, indent = 4)
         backupfile.close()
         
@@ -215,7 +249,7 @@ while yesbackup == False:
             total.append((matiere_backup, note_backup))
         
         yesbackup = True
-        file = open('data.txt', 'w')
+        file = open(data_txt, 'w')
         file.write("Moyenne des matières")
         file.write("\n+----------")
         file.write('\n')
@@ -323,7 +357,7 @@ while nobackup == False:
 
     if nobackupask == "N" or nobackupask == "n": # Arret du programme
         nobackup = True
-        file = open('data.txt', 'w')
+        file = open(data_txt, 'w')
         file.write("Moyenne des matières")
         file.write("\n+----------")
         file.write('\n')
@@ -350,7 +384,7 @@ while nobackup == False:
         file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
         file.close()
 
-        backupfile = open('data.json', 'w')
+        backupfile = open(data_json, 'w')
         json.dump(backup, backupfile, ensure_ascii=False, indent = 4)
         backupfile.close()
 
@@ -360,7 +394,7 @@ while justcount == False:
     #print("\U0001F44D")
 
     # Note en tulpe
-    backupfile = open('data.json', 'r')
+    backupfile = open(data_json, 'r')
     backup = json.load(backupfile)
     backupfile.close()
 
@@ -400,17 +434,9 @@ while justcount == False:
         #flag1 += 1
         flag2 += 1
 
-    # Tableau
-    
-    moyenne_table = Table(title="\U0001F3EB Moyenne des Matières \U0001F3EB")
-
-    moyenne_table.add_column("Matières", justify="center", style="red")
-    moyenne_table.add_column("note", justify="center", style="blue")
-    moyenne_table.add_column("Moyennes", justify="right", style="cyan")
-    moyenne_table.add_column("Like", justify="center", style="green")
     # Ecriture / Affichage
 
-    file = open('data.txt', 'w')
+    file = open(data_txt, 'w')
     file.write("Moyenne des matières")
     file.write("\n+----------")
     file.write('\n')
@@ -423,6 +449,8 @@ while justcount == False:
         # Ecriture dans un fichier lisible de la session actuelle
         file.write("\nVous avez {} de moyennne en {} {}".format(note, matiere, like))
     console.print(moyenne_table)
+    console.save_text(data_txt)
+    console.save_html(data_html)
 
     index = len(total)
     for flag, note in total:
@@ -431,21 +459,22 @@ while justcount == False:
     
     like = emoji(moygeneral)
     
-    console.print('\n')
-    console.print("Vous avez [purple]{}[/] de moyenne générale {}".format(moygeneral, like), style="bold")
-    console.print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
-    file.write("\n\nMoyenne Générale")
-    file.write("\n+----------")
-    file.write('\n')
-    file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
-    file.close()
+    #console.print('\n')
+    #console.print("Vous avez [purple]{}[/] de moyenne générale {}".format(moygeneral, like), style="bold")
+    #console.print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
+    #file.write("\n\nMoyenne Générale")
+    #file.write("\n+----------")
+    #file.write('\n')
+    #file.write("\nVous avez {} de moyenne générale {}".format(moygeneral, like))
+    #file.close()
 
     #backup[matmp]['note'].append((separate(tmp)))
     #backup[matmp]['coef'].append((separate(tmp, noteask=False)))
     
-    backupfile = open('data.json', 'w')
+    backupfile = open(data_json, 'w')
     json.dump(backup, backupfile, ensure_ascii=False, indent = 4)
     backupfile.close()
+    
 
     #print(backup)
     justcount = True
