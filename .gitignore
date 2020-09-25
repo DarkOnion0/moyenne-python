@@ -134,3 +134,4 @@ dmypy.json
 *.json
 *.html
 test.py
+dist
