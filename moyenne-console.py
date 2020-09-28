@@ -45,7 +45,7 @@ except AssertionError:
 
 # Table
 moyenne_table = Table(title="\U0001F3EB Moyenne des Matières \U0001F3EB", )
-moyenne_table.add_column("Matières", justify="center", style="red")
+moyenne_table.add_column("Matières", justify="left", style="red")
 moyenne_table.add_column("note", justify="center", style="blue")
 moyenne_table.add_column("Moyennes", justify="right", style="cyan")
 moyenne_table.add_column("Like", justify="center", style="green")
@@ -459,9 +459,9 @@ while justcount == False:
     
     like = emoji(moygeneral)
     
-    #console.print('\n')
-    #console.print("Vous avez [purple]{}[/] de moyenne générale {}".format(moygeneral, like), style="bold")
-    #console.print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
+    console.print('\n')
+    console.print("Vous avez [purple]{}[/] de moyenne générale {}".format(moygeneral, like), style="bold")
+    console.print("\n\U0001F4A1 Vos notes sont stockées dans un fichier data.txt dans le dossier actuelle")
     #file.write("\n\nMoyenne Générale")
     #file.write("\n+----------")
     #file.write('\n')
