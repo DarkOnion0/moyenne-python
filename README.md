@@ -5,8 +5,13 @@
 Un script qui calcule la moyenne de classe,
 
 ## Utilisation :rocket:
-* Installer [pip](https://pypi.org/project/pip/) et installer le module `rich` --> `pip install rich`
-* Télécharger la dernière version stable et executer `python moyenne-console.py`
+* ### Windows
+  1. Installer [python 🐍](https://www.python.org/downloads/windows/) et installer pip dans l'installateur.
+  2. Installer le module `rich`, ouvrire PowerShell --> `pip install rich`
+  3. Télécharger la dernière version stable et executer `python moyenne-console.py`
+* ### Linux
+  * Installer [pip](https://pypi.org/project/pip/) et installer le module `rich` --> `pip install rich`
+  * Télécharger la dernière version stable et executer `python moyenne-console.py`
 * Commencer par créer un nouveaux fichier en choisissant le choix 1 lors du démarage et laissez vous guider  
 * Vous pouvez modifier votre moyenne a partir du fichier data.json ou en créer un avec la syntax suivante
   
