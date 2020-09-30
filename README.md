@@ -10,7 +10,7 @@ Un script qui calcule la moyenne de classe,
     1. Installer [python 🐍](https://www.python.org/downloads/windows/) et installer pip dans l'installateur.
     2. Installer le module `rich`, ouvrire PowerShell --> `pip install rich`
     3. Télécharger la dernière version stable et executer `python moyenne-console.py`
-  * #### Solution 2 
+  * #### Solution 2 (BETA)
     1. Télécharger la dernière version stable et executer `moyenne-console` dans le dossier build
 * ### Linux
   * Installer [pip](https://pypi.org/project/pip/) et installer le module `rich` --> `pip install rich`
